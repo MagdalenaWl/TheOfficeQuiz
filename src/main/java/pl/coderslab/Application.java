@@ -41,25 +41,26 @@ public class Application extends SpringBootServletInitializer {
         return builder.build();
     }
 
-    @Bean
-    public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
-        return args -> {
-            CharacterDTO characterDTO = restTemplate.getForObject(
-                    "https://www.officeapi.dev/api/characters", CharacterDTO.class);
-            Arrays.stream(characterDTO.getData()).forEach(el->characterService.save(el));
-            log.info(characterDTO.toString());
-            QuoteDTO quoteDTO = restTemplate.getForObject("https://www.officeapi.dev/api/quotes",QuoteDTO.class);
-            log.info(quoteDTO.toString());
-            Arrays.stream(quoteDTO.getData()).forEach(el->quoteService.save(el));
-            CrewMemberDTO crewMemberDTO=restTemplate.getForObject("https://www.officeapi.dev/api/crew",CrewMemberDTO.class);
-            log.info(crewMemberDTO.toString());
-            Arrays.stream(crewMemberDTO.getData()).forEach(el->crewMemberService.save(el));
-            EpisodeDTO episodeDTO=restTemplate.getForObject("https://www.officeapi.dev/api/episodes",EpisodeDTO.class);
-            log.info(episodeDTO.toString());
-            Arrays.stream(episodeDTO.getData()).forEach(el->episodeService.save(el));
-
-
-        };
-    }
+    // @TODO odkomentowac
+//    @Bean
+//    public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
+//        return args -> {
+//            CharacterDTO characterDTO = restTemplate.getForObject(
+//                    "https://www.officeapi.dev/api/characters", CharacterDTO.class);
+//            Arrays.stream(characterDTO.getData()).forEach(el->characterService.save(el));
+//            log.info(characterDTO.toString());
+//            QuoteDTO quoteDTO = restTemplate.getForObject("https://www.officeapi.dev/api/quotes",QuoteDTO.class);
+//            log.info(quoteDTO.toString());
+//            Arrays.stream(quoteDTO.getData()).forEach(el->quoteService.save(el));
+//            CrewMemberDTO crewMemberDTO=restTemplate.getForObject("https://www.officeapi.dev/api/crew",CrewMemberDTO.class);
+//            log.info(crewMemberDTO.toString());
+//            Arrays.stream(crewMemberDTO.getData()).forEach(el->crewMemberService.save(el));
+//            EpisodeDTO episodeDTO=restTemplate.getForObject("https://www.officeapi.dev/api/episodes",EpisodeDTO.class);
+//            log.info(episodeDTO.toString());
+//            Arrays.stream(episodeDTO.getData()).forEach(el->episodeService.save(el));
+//
+//
+//        };
+// }
 
 }

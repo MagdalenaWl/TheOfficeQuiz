@@ -16,4 +16,8 @@ public class Character {
     private String apiId;
     private String firstName;
     private String lastName;
+
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
 }

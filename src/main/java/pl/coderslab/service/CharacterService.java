@@ -6,6 +6,8 @@ import pl.coderslab.repository.CharacterRepository;
 import pl.coderslab.dto.CharacterData;
 import pl.coderslab.model.Character;
 
+import java.util.Collection;
+
 @Service
 @AllArgsConstructor
 public class CharacterService {
@@ -23,5 +25,9 @@ public class CharacterService {
     }
     Character findByApiId(String apiId){
         return characterRepository.findFirstByApiId(apiId);
+    }
+
+    public Collection<Character> findAll() {
+        return characterRepository.findAll();
     }
 }

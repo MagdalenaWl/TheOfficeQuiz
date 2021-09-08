@@ -29,22 +29,12 @@
         </a>
         <ul class="nav nounderline text-uppercase">
             <li class="nav-item ml-4">
-                <a class="nav-link" href="/login">logowanie</a>
+                <a class="nav-link" href="/login">login</a>
             </li>
             <li class="nav-item ml-4">
-                <a class="nav-link" href="/register">rejestracja</a>
+                <a class="nav-link" href="/register">register</a>
             </li>
 
-            <%--            <li>--%>
-            <%--                <%  HttpSession sess = request.getSession();--%>
-            <%--                    if (sess.getAttribute("adminID")!=null) {%>--%>
-            <%--                <a href="/dashboard">--%>
-            <%--                    <div class="circle-div text-center">--%>
-            <%--                        <i class="fas fa-user icon-user"></i>--%>
-            <%--                    </div>--%>
-            <%--                </a>--%>
-            <%--                <% } %>--%>
-            <%--            </li>--%>
         </ul>
     </nav>
 </header>
