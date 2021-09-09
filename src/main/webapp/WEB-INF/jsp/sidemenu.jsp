@@ -9,13 +9,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/app/recipe/list">
+                <a class="nav-link" href="/quiz/writers">
                     <span>Who wrote it?</span>
                     <i class="fas fa-angle-right"></i>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/app/plan/list">
+                <a class="nav-link" href="/quiz/directors">
                     <span>Who directed it?</span>
                     <i class="fas fa-angle-right"></i>
                 </a>

@@ -32,4 +32,7 @@ public class CurrentQuiz {
     public String getCurrentCorrectAnswer(){
         return questions.get(currentQuestionIndex).getTrueAnswer();
     }
+    public int getSize(){
+        return questions.size();
+    }
 }

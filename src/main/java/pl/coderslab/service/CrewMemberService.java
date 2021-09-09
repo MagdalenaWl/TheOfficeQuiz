@@ -6,6 +6,9 @@ import pl.coderslab.dto.CrewMemberData;
 import pl.coderslab.model.CrewMember;
 import pl.coderslab.repository.CrewMemberRepository;
 
+import java.util.Collection;
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class CrewMemberService {
@@ -21,5 +24,9 @@ public class CrewMemberService {
     }
     public CrewMember findByApiId(String apiId){
         return crewMemberRepository.findFirstByApiId(apiId);
+    }
+
+    public List<CrewMember> findAll() {
+        return crewMemberRepository.findAll();
     }
 }

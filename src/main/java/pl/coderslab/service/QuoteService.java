@@ -30,22 +30,22 @@ public class QuoteService {
     }
 
     public List<Quote> findRandom(int numberOfQuestions) {
-        List<Quote> quotes = (quoteRepository.findAll());
+        List<Quote> quotes = quoteRepository.findAll();
         if (quotes.size() > numberOfQuestions) {
             Collections.shuffle(quotes);
             return quotes.subList(0, numberOfQuestions);
-        } else {
-            return quotes;
         }
+        return quotes;
+
     }
 
 
-    public CurrentQuiz makeQuiz(int numberOfQuestions){
+    public CurrentQuiz makeQuiz(int numberOfQuestions) {
         List<Quote> quotes = this.findRandom(numberOfQuestions);
-        CurrentQuiz currentQuiz =new CurrentQuiz();
+        CurrentQuiz currentQuiz = new CurrentQuiz();
         for (Quote quote : quotes) {
             Question question = new Question(quote.getContent());
-            question.addAnswer(quote.getCharacter().getFullName(),true);
+            question.addAnswer(quote.getCharacter().getFullName(), true);
             currentQuiz.addQuestion(question);
         }
         return currentQuiz;

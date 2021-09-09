@@ -2,29 +2,24 @@ package pl.coderslab;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
-import pl.coderslab.dto.CharacterDTO;
-import pl.coderslab.dto.CrewMemberDTO;
-import pl.coderslab.dto.EpisodeDTO;
-import pl.coderslab.dto.QuoteDTO;
-import pl.coderslab.model.CrewMember;
-import pl.coderslab.model.Episode;
-import pl.coderslab.model.Quote;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import pl.coderslab.service.CharacterService;
 import pl.coderslab.service.CrewMemberService;
 import pl.coderslab.service.EpisodeService;
 import pl.coderslab.service.QuoteService;
 
-import java.util.Arrays;
+import java.util.Locale;
 
 
-@SpringBootApplication
+@SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
 @Slf4j
 @AllArgsConstructor
 public class Application extends SpringBootServletInitializer {
@@ -35,6 +30,12 @@ public class Application extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
+    }
+    @Bean
+    public LocaleResolver localeResolver() {
+        SessionLocaleResolver slr = new SessionLocaleResolver();
+        slr.setDefaultLocale(Locale.ENGLISH);
+        return slr;
     }
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
