@@ -41,8 +41,8 @@ public class WritersQuizController {
     }
 
     @RequestMapping("/endQuiz")
-    public String result(HttpSession session, HttpServletResponse response){
-        session.removeAttribute("currentQuiz");
+    public String result(HttpSession session){
+        quizService.endQuiz(session);
         return "redirect:/";
     }
 

@@ -28,12 +28,22 @@
             The Office <span>Quiz</span>
         </a>
         <ul class="nav nounderline text-uppercase">
-            <li class="nav-item ml-4">
-                <a class="nav-link" href="/login">login</a>
-            </li>
-            <li class="nav-item ml-4">
-                <a class="nav-link" href="/register">register</a>
-            </li>
+            <c:if test="${pageContext.request.userPrincipal.name == null}">
+                <li class="nav-item ml-4">
+                    <a class="nav-link" href="/login">login</a>
+                </li>
+                <li class="nav-item ml-4">
+                    <a class="nav-link" href="/register">register</a>
+                </li>
+            </c:if>
+            <c:if test="${pageContext.request.userPrincipal.name != null}">
+                <li class="nav-item ml-4">
+                    <a class="nav-link" href="/logout">logout</a>
+                </li>
+                <li class="nav-item ml-4">
+                    <a class="nav-link" href="/details">profile details</a>
+                </li>
+            </c:if>
 
         </ul>
     </nav>

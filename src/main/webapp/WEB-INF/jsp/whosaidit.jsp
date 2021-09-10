@@ -19,6 +19,7 @@
                                 </c:forEach>
                             </datalist>
                         </div>
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     <button class="btn btn-color rounded-25" type="submit">Check</button>
                 </form>
             </div>
