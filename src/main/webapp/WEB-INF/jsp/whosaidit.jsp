@@ -7,7 +7,7 @@
     <div class="container pt-4 pb-4">
         <div class="border-dashed view-height">
             <div class="container w-75">
-                <form class="padding-small" method="POST" modelAttribute>
+                <form class="padding-small" method="POST">
                     <h1 class="text-color-darker text-center">Who said it?</h1>
                     <h6 class="text-color-darker text-center">Write first and last name of character.</h6>
                         <div class="form-group">

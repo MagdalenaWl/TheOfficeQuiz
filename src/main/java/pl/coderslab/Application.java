@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
@@ -22,6 +23,7 @@ import java.util.Locale;
 @SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
 @Slf4j
 @AllArgsConstructor
+@ServletComponentScan
 public class Application extends SpringBootServletInitializer {
     CharacterService characterService;
     QuoteService quoteService;

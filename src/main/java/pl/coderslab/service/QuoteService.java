@@ -43,6 +43,7 @@ public class QuoteService {
     public CurrentQuiz makeQuiz(int numberOfQuestions) {
         List<Quote> quotes = this.findRandom(numberOfQuestions);
         CurrentQuiz currentQuiz = new CurrentQuiz();
+        currentQuiz.setPath("/quiz/quotes");
         for (Quote quote : quotes) {
             Question question = new Question(quote.getContent());
             question.addAnswer(quote.getCharacter().getFullName(), true);

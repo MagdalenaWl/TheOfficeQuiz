@@ -48,7 +48,7 @@ public class BasicConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-               .antMatchers("/quiz/**").hasAuthority("USER")
+//               .antMatchers("/quiz/**").hasAuthority("USER")
 //                .antMatchers(HttpMethod.POST,"/quiz/**").hasAuthority("USER")
 //                .antMatchers("/quiz/writers").hasAuthority("MODERATOR")
 //                .antMatchers("/quiz/directors").hasAuthority("ADMIN")

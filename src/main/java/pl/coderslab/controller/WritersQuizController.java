@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.coderslab.model.CrewMember;
+import pl.coderslab.model.CurrentQuiz;
 import pl.coderslab.service.CrewMemberService;
 import pl.coderslab.service.EpisodeService;
 import pl.coderslab.service.QuizService;
@@ -34,8 +35,6 @@ public class WritersQuizController {
     public String quotes(HttpSession session) {
         if (session.getAttribute("currentQuiz") == null) {
             session.setAttribute("currentQuiz", episodeService.makeWritersQuiz(NUMBER_OF_QUESTIONS));
-        }else {
-            quizService.nextQuestion(session);
         }
         return "whowroteit";
     }
@@ -51,5 +50,30 @@ public class WritersQuizController {
         quizService.checkAnswer(session,answer);
         return "writerResult";
     }
+    @RequestMapping("/confirmation")
+    public String confirmation() {
+        return "confirmation";
+    }
+
+    @PostMapping("/confirmation")
+    public String confirmation(HttpSession session,@RequestParam String confirm) {
+        if (confirm.equalsIgnoreCase("y")) {
+            return "redirect:/quiz/writers/endQuiz";
+        }
+        CurrentQuiz currentQuiz = (CurrentQuiz) session.getAttribute("currentQuiz");
+        if (currentQuiz.isAlreadyChecked()) {
+            return "redirect:/quiz/writers/next";
+        }
+            return "redirect:/quiz/writers";
+
+    }
+
+    @RequestMapping(value = "/next")
+    public String nextQuestion(HttpSession session) {
+        quizService.nextQuestion(session);
+        return "redirect:/quiz/writers";
+    }
+
+
 
 }

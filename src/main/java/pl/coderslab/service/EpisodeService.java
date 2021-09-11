@@ -43,6 +43,7 @@ public class EpisodeService {
     public CurrentQuiz makeWritersQuiz(int numberOfQuestions) {
         List<Episode> episodes=this.findRandom(numberOfQuestions);
         CurrentQuiz currentQuiz=new CurrentQuiz();
+        currentQuiz.setPath("/quiz/writers");
         for (Episode episode : episodes) {
             Question question=new Question("Title: "+episode.getTitle()+". Description: "+episode.getDescription());
             question.addAnswer(episode.getWriter().getName(),true);
@@ -53,6 +54,7 @@ public class EpisodeService {
     public CurrentQuiz makeDirectorsQuiz(int numberOfQuestions) {
         List<Episode> episodes=this.findRandom(numberOfQuestions);
         CurrentQuiz currentQuiz=new CurrentQuiz();
+        currentQuiz.setPath("/quiz/directors");
         for (Episode episode : episodes) {
             Question question=new Question("Title: "+episode.getTitle()+". Description: "+episode.getDescription());
             question.addAnswer(episode.getDirector().getName(),true);

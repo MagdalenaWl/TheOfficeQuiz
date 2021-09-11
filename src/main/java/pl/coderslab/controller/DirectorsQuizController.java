@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.coderslab.model.CrewMember;
+import pl.coderslab.model.CurrentQuiz;
 import pl.coderslab.service.CrewMemberService;
 import pl.coderslab.service.EpisodeService;
 import pl.coderslab.service.QuizService;
@@ -33,10 +34,13 @@ public class DirectorsQuizController {
     public String quotes(HttpSession session) {
         if (session.getAttribute("currentQuiz") == null) {
             session.setAttribute("currentQuiz", episodeService.makeDirectorsQuiz(NUMBER_OF_QUESTIONS));
-        }else {
-            quizService.nextQuestion(session);
         }
         return "whodirectedit";
+    }
+    @PostMapping("")
+    public String checkAnswer(HttpSession session, @RequestParam String answer) {
+        quizService.checkAnswer(session,answer);
+        return "directorResult";
     }
 
     @RequestMapping("/endQuiz")
@@ -45,10 +49,29 @@ public class DirectorsQuizController {
         return "redirect:/";
     }
 
-    @PostMapping("")
-    public String checkAnswer(HttpSession session, @RequestParam String answer) {
-        quizService.checkAnswer(session,answer);
-        return "directorResult";
+
+    @RequestMapping("/confirmation")
+    public String confirmation() {
+        return "confirmation";
     }
+
+    @PostMapping("/confirmation")
+    public String confirmation(HttpSession session,@RequestParam String confirm) {
+        if (confirm.equalsIgnoreCase("y")) {
+            return "redirect:/quiz/directors/endQuiz";
+        }
+        CurrentQuiz currentQuiz = (CurrentQuiz) session.getAttribute("currentQuiz");
+        if (currentQuiz.isAlreadyChecked()) {
+            return "redirect:/quiz/directors/next";
+        }
+            return "redirect:/quiz/directors";
+           }
+
+    @RequestMapping(value = "/next")
+    public String nextQuestion(HttpSession session) {
+        quizService.nextQuestion(session);
+        return "redirect:/quiz/directors";
+    }
+
 
 }

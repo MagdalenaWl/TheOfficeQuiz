@@ -35,4 +35,5 @@ public class QuizService {
         session.removeAttribute("currentQuiz");
 
     }
+
 }

@@ -11,7 +11,7 @@
                     <c:if test="${currentQuiz.currentCorrect}">Correct!</c:if>
                     <c:if test="${not currentQuiz.currentCorrect}">Wrong. Correct answer: ${currentQuiz.currentCorrectAnswer}</c:if>
                 </h5>
-                <c:if test="${currentQuiz.currentQuestionIndex<currentQuiz.size-1}"><a class="btn btn-color btn-sm rounded-25 " href="/quiz/writers">Next</a> </c:if>
+                <c:if test="${currentQuiz.currentQuestionIndex<currentQuiz.size-1}"><a class="btn btn-color btn-sm rounded-25 " href="/quiz/writers/next">Next</a> </c:if>
                 <c:if test="${currentQuiz.currentQuestionIndex==currentQuiz.size-1}">
                     <br><h6 class="text-color-darker p-4 d-inline text-center">
                         <c:out value="You got ${currentQuiz.points}/${currentQuiz.size} points!" default="Error, sorry"/>
