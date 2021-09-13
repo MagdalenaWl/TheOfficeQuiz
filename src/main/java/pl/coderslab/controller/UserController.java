@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.dto.UserDTO;
+import pl.coderslab.model.User;
 import pl.coderslab.service.UserService;
 
 import javax.validation.Valid;
@@ -24,6 +25,16 @@ public class UserController {
         return "register";
     }
 
+    @RequestMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    @RequestMapping("/logout")
+    public String logout() {
+        return "logout";
+    }
+
     @PostMapping("/register")
     public String register(@Valid UserDTO user, BindingResult result) {
         if (result.hasErrors()) {
@@ -31,6 +42,14 @@ public class UserController {
         }
         userService.save(user);
         return "home";
+    }
+
+    @RequestMapping("/details")
+    public String details(Model model) {
+        User user = userService.findLoggedInUser();
+        model.addAttribute("loggedUser", user);
+        model.addAttribute("played", userService.playedThisMonth(user));
+        return "details";
     }
 
 

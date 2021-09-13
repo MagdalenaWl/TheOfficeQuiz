@@ -13,9 +13,9 @@ import java.util.Collection;
 public class CharacterService {
     CharacterRepository characterRepository;
 
-    public void save(CharacterData characterData){
-        if(!characterRepository.existsCharacterByApiId(characterData.get_id())){
-            Character character=new Character();
+    public void save(CharacterData characterData) {
+        if (!characterRepository.existsCharacterByApiId(characterData.get_id())) {
+            Character character = new Character();
             character.setApiId(characterData.get_id());
             character.setFirstName(characterData.getFirstname());
             character.setLastName(characterData.getLastname());
@@ -23,7 +23,8 @@ public class CharacterService {
         }
 
     }
-    Character findByApiId(String apiId){
+
+    Character findByApiId(String apiId) {
         return characterRepository.findFirstByApiId(apiId);
     }
 

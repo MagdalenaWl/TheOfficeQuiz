@@ -16,6 +16,4 @@ public class EpisodeData {
     private String description;
     private CrewMemberData director;
     private CrewMemberData writer;
-
-
 }

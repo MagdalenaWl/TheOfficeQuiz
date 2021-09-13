@@ -7,7 +7,6 @@ import pl.coderslab.model.Question;
 import pl.coderslab.model.CurrentQuiz;
 import pl.coderslab.model.Quote;
 import pl.coderslab.repository.QuoteRepository;
-
 import javax.transaction.Transactional;
 import java.util.Collections;
 import java.util.List;

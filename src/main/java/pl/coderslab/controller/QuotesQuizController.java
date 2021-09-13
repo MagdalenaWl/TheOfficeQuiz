@@ -9,7 +9,6 @@ import pl.coderslab.model.CurrentQuiz;
 import pl.coderslab.service.CharacterService;
 import pl.coderslab.service.QuizService;
 import pl.coderslab.service.QuoteService;
-
 import javax.servlet.http.HttpSession;
 import java.util.Collection;
 

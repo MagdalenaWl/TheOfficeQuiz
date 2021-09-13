@@ -29,10 +29,21 @@ public class User {
     private int pointsInMonth;
 
     @ManyToMany
-    private Set<Role> roles=new HashSet<>();
+    private Set<Role> roles = new HashSet<>();
 
-    public void addRole(Role role){
+    public void addRole(Role role) {
         roles.add(role);
+    }
+
+    public String getAvg() {
+        if (this.games == 0) {
+            return "0";
+        }
+        return String.format("%.2f", (double) this.points / this.games);
+    }
+
+    public String getMonthAvg() {
+        return String.format("%.2f", (double) this.pointsInMonth / this.gamesInMonth);
     }
 
 

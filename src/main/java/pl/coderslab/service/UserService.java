@@ -2,6 +2,8 @@ package pl.coderslab.service;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.coderslab.dto.UserDTO;
@@ -20,7 +22,8 @@ import java.util.stream.Collectors;
 public class UserService {
     UserRepository userRepository;
     RoleService roleService;
-    public void save(UserDTO userDTO){
+
+    public void save(UserDTO userDTO) {
         User user = new User();
         user.setLogin(userDTO.getLogin());
         user.setEmail(userDTO.getEmail());
@@ -35,24 +38,24 @@ public class UserService {
         userRepository.save(user);
 
     }
-    @Transactional
-    public User findByLogin(String login){
 
-        User user= userRepository.findFirstByLogin(login);
+    @Transactional
+    public User findByLogin(String login) {
+
+        User user = userRepository.findFirstByLogin(login);
         user.getRoles().size();
         return user;
     }
 
-    public void updatePoints(String login, int points) {
-        User user= userRepository.findFirstByLogin(login);
-        user.setPoints(user.getPoints()+points);
-        user.setGames(user.getGames()+1);
-        if (user.getLastGame()==null){
+    public void updatePoints(User user, int points) {
+        user.setPoints(user.getPoints() + points);
+        user.setGames(user.getGames() + 1);
+        if (user.getLastGame() == null) {
             user.setPointsInMonth(points);
             user.setGamesInMonth(1);
-        }else if (user.getLastGame().getMonth().equals(LocalDate.now().getMonth())){
-            user.setPointsInMonth(user.getPointsInMonth()+points);
-            user.setGamesInMonth(user.getGamesInMonth()+1);
+        } else if (user.getLastGame().getMonth().equals(LocalDate.now().getMonth())) {
+            user.setPointsInMonth(user.getPointsInMonth() + points);
+            user.setGamesInMonth(user.getGamesInMonth() + 1);
         } else {
             user.setPointsInMonth(points);
             user.setGamesInMonth(1);
@@ -61,8 +64,27 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public List<BestUsers> findBest(){
-        List<User> users = userRepository.findBest(LocalDate.now().getMonthValue());
-        return users.stream().map(user -> new BestUsers(user.getLogin(), String.format("%.2f",(double)user.getPointsInMonth()/user.getGamesInMonth()))).collect(Collectors.toList());
+    public List<BestUsers> findBest() {
+        List<User> users = userRepository.findBest(LocalDate.now().withDayOfMonth(1));
+        return users.stream()
+                .map(user -> new BestUsers(user.getLogin(), user.getMonthAvg()))
+                .collect(Collectors.toList());
     }
+
+    public User findLoggedInUser() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof UserDetails) {
+            String login = ((UserDetails) principal).getUsername();
+            return this.findByLogin(login);
+        }
+        return null;
+    }
+
+    public boolean playedThisMonth(User user) {
+        if (user.getLastGame() == null) {
+            return false;
+        }
+        return !user.getLastGame().isBefore(LocalDate.now().withDayOfMonth(1));
+    }
+
 }

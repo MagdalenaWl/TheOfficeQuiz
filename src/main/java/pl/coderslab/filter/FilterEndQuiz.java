@@ -22,14 +22,14 @@ public class FilterEndQuiz implements Filter {
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws ServletException, IOException {
         HttpServletRequest request = (HttpServletRequest) req;
-        String path=request.getRequestURI();
+        String path = request.getRequestURI();
         HttpSession session = request.getSession();
         CurrentQuiz currentQuiz = (CurrentQuiz) session.getAttribute("currentQuiz");
         if (currentQuiz == null || path.startsWith(currentQuiz.getPath())) {
             chain.doFilter(req, res);
         } else {
             HttpServletResponse response = (HttpServletResponse) res;
-            response.sendRedirect(currentQuiz.getPath()+"/confirmation");
+            response.sendRedirect(currentQuiz.getPath() + "/confirmation");
         }
     }
 }

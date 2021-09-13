@@ -2,12 +2,9 @@ package pl.coderslab.controller;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import pl.coderslab.service.UserService;
 
 @Controller
@@ -18,13 +15,9 @@ public class HomeController {
 
     @RequestMapping("/")
     public String home(Model model) {
-        model.addAttribute("best",userService.findBest());
+        model.addAttribute("best", userService.findBest());
         return "home";
     }
-    @RequestMapping("/xderror")
-    @ResponseBody
-    public String error(Model model) {
-        return "error";
-    }
+
 
 }

@@ -9,16 +9,17 @@
             <div class="container w-75">
                 <form class="padding-small" method="POST" modelAttribute>
                     <h1 class="text-color-darker text-center">Who directed it?</h1>
-                    <h6 class="text-color-darker text-center">Write first and last name of director of this episode.</h6>
-                        <div class="form-group">
-                            <label>${currentQuiz.currentQuestion}</label>
-                            <input type="text" class="form-control" name="answer" list="list-crew">
-                            <datalist id="list-crew">
-                                <c:forEach items="${crew}" var="crewMember">
-                                    <option>${crewMember.name}</option>
-                                </c:forEach>
-                            </datalist>
-                        </div>
+                    <h6 class="text-color-darker text-center">Write first and last name of director of this
+                        episode.</h6>
+                    <div class="form-group">
+                        <label>${currentQuiz.currentQuestion}</label>
+                        <input type="text" class="form-control" name="answer" list="list-crew">
+                        <datalist id="list-crew">
+                            <c:forEach items="${crew}" var="crewMember">
+                                <option>${crewMember.name}</option>
+                            </c:forEach>
+                        </datalist>
+                    </div>
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     <button class="btn btn-color rounded-25" type="submit">Check</button>
                 </form>

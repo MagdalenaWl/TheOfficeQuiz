@@ -15,7 +15,6 @@
 }
 
 
-
 * {
     margin: 0;
     padding: 0;
@@ -29,7 +28,6 @@ html {
 body {
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
-    /*background: repeat url("../images/theOfficeLogo.png");*/
     background-image: url("../images/background.jpg");
     background-repeat: repeat;
     background-size: contain;
@@ -497,6 +495,7 @@ hr {
 .container {
     opacity: 0.95;
 }
-.invalid-feedback{
+
+.invalid-feedback {
 
 }

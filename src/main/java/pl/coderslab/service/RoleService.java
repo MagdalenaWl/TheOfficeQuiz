@@ -10,7 +10,7 @@ import pl.coderslab.repository.RoleRepository;
 public class RoleService {
     RoleRepository roleRepository;
 
-    public Role findByName(String name){
+    public Role findByName(String name) {
         return roleRepository.findFirstByName(name);
     }
 }

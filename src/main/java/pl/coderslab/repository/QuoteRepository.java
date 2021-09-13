@@ -7,8 +7,9 @@ import pl.coderslab.model.Quote;
 import java.util.List;
 
 @Repository
-public interface QuoteRepository extends JpaRepository<Quote,Long> {
+public interface QuoteRepository extends JpaRepository<Quote, Long> {
     boolean existsQuoteByApiId(String apiId);
+
     List<Quote> findAll();
 
 }

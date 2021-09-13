@@ -11,17 +11,18 @@ import java.util.List;
 
 public class Question {
     private String question;
-    private List<Answer> answers=new ArrayList<>();
+    private List<Answer> answers = new ArrayList<>();
 
 
-    public void addAnswer(String answer, boolean isTrue){
-        answers.add(new Answer(answer,isTrue));
+    public void addAnswer(String answer, boolean isTrue) {
+        answers.add(new Answer(answer, isTrue));
     }
 
     public Question(String question) {
         this.question = question;
     }
-    public String getTrueAnswer(){
+
+    public String getTrueAnswer() {
         return answers.stream().filter(answer -> answer.isTrue()).findFirst().get().getAnswer();
     }
 }

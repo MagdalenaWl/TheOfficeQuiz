@@ -11,8 +11,6 @@ import pl.coderslab.model.CurrentQuiz;
 import pl.coderslab.service.CrewMemberService;
 import pl.coderslab.service.EpisodeService;
 import pl.coderslab.service.QuizService;
-
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Collection;
 
@@ -26,7 +24,7 @@ public class DirectorsQuizController {
     private static int NUMBER_OF_QUESTIONS = 5;
 
     @ModelAttribute("crew")
-    public Collection<CrewMember> crew(){
+    public Collection<CrewMember> crew() {
         return this.crewMemberService.findAll();
     }
 
@@ -37,14 +35,15 @@ public class DirectorsQuizController {
         }
         return "whodirectedit";
     }
+
     @PostMapping("")
     public String checkAnswer(HttpSession session, @RequestParam String answer) {
-        quizService.checkAnswer(session,answer);
+        quizService.checkAnswer(session, answer);
         return "directorResult";
     }
 
     @RequestMapping("/endQuiz")
-    public String result(HttpSession session){
+    public String result(HttpSession session) {
         quizService.endQuiz(session);
         return "redirect:/";
     }
@@ -56,7 +55,7 @@ public class DirectorsQuizController {
     }
 
     @PostMapping("/confirmation")
-    public String confirmation(HttpSession session,@RequestParam String confirm) {
+    public String confirmation(HttpSession session, @RequestParam String confirm) {
         if (confirm.equalsIgnoreCase("y")) {
             return "redirect:/quiz/directors/endQuiz";
         }
@@ -64,8 +63,8 @@ public class DirectorsQuizController {
         if (currentQuiz.isAlreadyChecked()) {
             return "redirect:/quiz/directors/next";
         }
-            return "redirect:/quiz/directors";
-           }
+        return "redirect:/quiz/directors";
+    }
 
     @RequestMapping(value = "/next")
     public String nextQuestion(HttpSession session) {

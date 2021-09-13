@@ -1,8 +1,4 @@
 <%@include file="header.jsp" %>
-<%--<%@include file="sidemenu.jsp" %>--%>
-
-<%--<h2>Who said it?</h2>--%>
-<%--<h4>Write first and last name of the character.</h4>--%>
 <section class="dashboard-section">
     <div class="container pt-4 pb-4 w-75">
         <div class="border-dashed view-height">

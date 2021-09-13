@@ -5,8 +5,9 @@ import org.springframework.stereotype.Repository;
 import pl.coderslab.model.CrewMember;
 
 @Repository
-public interface CrewMemberRepository extends JpaRepository<CrewMember,Long> {
+public interface CrewMemberRepository extends JpaRepository<CrewMember, Long> {
 
     CrewMember findFirstByApiId(String apiId);
+
     boolean existsCrewMemberByApiId(String apiId);
 }

@@ -1,7 +1,6 @@
 package pl.coderslab.controller;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,7 +12,6 @@ import pl.coderslab.service.CrewMemberService;
 import pl.coderslab.service.EpisodeService;
 import pl.coderslab.service.QuizService;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Collection;
 
@@ -27,7 +25,7 @@ public class WritersQuizController {
     private static int NUMBER_OF_QUESTIONS = 5;
 
     @ModelAttribute("crew")
-    public Collection<CrewMember> crew(){
+    public Collection<CrewMember> crew() {
         return this.crewMemberService.findAll();
     }
 
@@ -40,23 +38,24 @@ public class WritersQuizController {
     }
 
     @RequestMapping("/endQuiz")
-    public String result(HttpSession session){
+    public String result(HttpSession session) {
         quizService.endQuiz(session);
         return "redirect:/";
     }
 
     @PostMapping("")
     public String checkAnswer(HttpSession session, @RequestParam String answer) {
-        quizService.checkAnswer(session,answer);
+        quizService.checkAnswer(session, answer);
         return "writerResult";
     }
+
     @RequestMapping("/confirmation")
     public String confirmation() {
         return "confirmation";
     }
 
     @PostMapping("/confirmation")
-    public String confirmation(HttpSession session,@RequestParam String confirm) {
+    public String confirmation(HttpSession session, @RequestParam String confirm) {
         if (confirm.equalsIgnoreCase("y")) {
             return "redirect:/quiz/writers/endQuiz";
         }
@@ -64,7 +63,7 @@ public class WritersQuizController {
         if (currentQuiz.isAlreadyChecked()) {
             return "redirect:/quiz/writers/next";
         }
-            return "redirect:/quiz/writers";
+        return "redirect:/quiz/writers";
 
     }
 
@@ -73,7 +72,6 @@ public class WritersQuizController {
         quizService.nextQuestion(session);
         return "redirect:/quiz/writers";
     }
-
 
 
 }

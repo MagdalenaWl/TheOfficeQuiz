@@ -7,7 +7,7 @@ import pl.coderslab.model.Character;
 
 
 @Repository
-public interface CharacterRepository extends JpaRepository<Character,Long> {
+public interface CharacterRepository extends JpaRepository<Character, Long> {
     @Query("select c from Character c where c.apiId=:apiId")
     Character findFirstByApiId(String apiId);
 
