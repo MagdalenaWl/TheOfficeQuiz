@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <section class="dashboard-section">
     <div class="row dashboard-nowrap">
         <ul class="nav flex-column long-bg">
@@ -20,22 +21,19 @@
                     <i class="fas fa-angle-right"></i>
                 </a>
             </li>
-            <%--            <li class="nav-item">--%>
-            <%--                <a class="nav-link" href="/app/edit/user/data">--%>
-            <%--                    <span>Edytuj dane</span>--%>
-            <%--                    <i class="fas fa-angle-right"></i>--%>
-            <%--                </a>--%>
-            <%--            </li>--%>
-            <%--            <li class="nav-item">--%>
-            <%--                <a class="nav-link disabled" href="/app/edit/user/password">--%>
-            <%--                    <span>Zmień hasło</span>--%>
-            <%--                    <i class="fas fa-angle-right"></i>--%>
-            <%--                </a>--%>
-            <%--            </li>--%>
-            <%--            <li class="nav-item">--%>
-            <%--                <a class="nav-link" href="/app/admin/users">--%>
-            <%--                    <span>Użytkownicy</span>--%>
-            <%--                    <i class="fas fa-angle-right"></i>--%>
-            <%--                </a>--%>
-            <%--            </li>--%>
+            <sec:authorize access="hasAuthority('USER')">
+                <li class="nav-item">
+                    <a class="nav-link" href="/add/quote">
+                        <span>Add quote</span>
+                        <i class="fas fa-angle-right"></i>
+                    </a>
+                </li>
+            </sec:authorize><sec:authorize access="hasAuthority('MODERATOR')">
+            <li class="nav-item">
+                <a class="nav-link" href="/add/approve">
+                    <span>For approval</span>
+                    <i class="fas fa-angle-right"></i>
+                </a>
+            </li>
+        </sec:authorize>
         </ul>

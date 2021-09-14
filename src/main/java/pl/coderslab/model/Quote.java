@@ -15,8 +15,10 @@ public class Quote {
     private Long id;
     private String apiId;
     @Column(length = 1024)
-    String content;
+    private String content;
 
     @ManyToOne
-    Character character;
+    private Character character;
+
+    private boolean approved;
 }

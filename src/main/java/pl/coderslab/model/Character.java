@@ -2,6 +2,7 @@ package pl.coderslab.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Table(name = "characters")
 @Getter
 @Setter
+@ToString
 public class Character {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
