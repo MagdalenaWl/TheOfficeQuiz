@@ -18,7 +18,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Column(unique = true)
     private String login;
     private String password;
     private String email;
@@ -28,7 +28,7 @@ public class User {
     private int gamesInMonth;
     private int pointsInMonth;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.ALL})
     private Set<Role> roles = new HashSet<>();
 
     public void addRole(Role role) {

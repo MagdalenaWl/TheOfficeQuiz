@@ -47,6 +47,10 @@ public class UserService {
         return user;
     }
 
+    public boolean loginExists(String login) {
+        return userRepository.existsByLogin(login);
+    }
+
     public void updatePoints(User user, int points) {
         user.setPoints(user.getPoints() + points);
         user.setGames(user.getGames() + 1);

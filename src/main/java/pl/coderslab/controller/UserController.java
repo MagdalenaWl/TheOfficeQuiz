@@ -41,7 +41,7 @@ public class UserController {
             return "register";
         }
         userService.save(user);
-        return "home";
+        return "redirect:/";
     }
 
     @RequestMapping("/details")

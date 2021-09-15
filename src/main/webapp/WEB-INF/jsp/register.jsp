@@ -7,6 +7,7 @@
             <div class="container w-100">
                 <form:form class="padding-small text-center" method="post" modelAttribute="userDTO">
                     <h1 class="text-color-darker">Registration</h1>
+                    <small><form:errors cssClass="text-danger"/></small>
                     <div class="form-group">
                         <form:label class="abel-size col-form-label" path="login">Login:</form:label>
                         <form:input class="form-control" path="login"/>

@@ -16,4 +16,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query(value = "SELECT * FROM users u WHERE last_game>=:start ORDER BY points_in_month DESC LIMIT 10", nativeQuery = true)
     List<User> findBest(LocalDate start);
 
+    boolean existsByLogin(String login);
 }
