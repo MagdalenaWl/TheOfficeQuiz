@@ -10,6 +10,7 @@ import java.util.List;
 @Setter
 
 public class Question {
+    private Long id;
     private String question;
     private List<Answer> answers = new ArrayList<>();
 

@@ -6,10 +6,8 @@
     <div class="m-4 border-dashed view-height">
         <div class="container w-75 p-4">
             <c:url value="/logout" var="logoutUrl"/>
+            <h1>Are you sure you want to log out?</h1>
             <form class="padding-small" action="${logoutUrl}" method="post">
-
-
-                <label for="logoutBtn">Are you sure you want to log out?</label>
                 <input type="hidden"
                        name="${_csrf.parameterName}"
                        value="${_csrf.token}"/>

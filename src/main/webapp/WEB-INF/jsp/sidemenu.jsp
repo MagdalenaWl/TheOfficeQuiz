@@ -21,6 +21,12 @@
                     <i class="fas fa-angle-right"></i>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/quiz/question">
+                    <span>Users questions</span>
+                    <i class="fas fa-angle-right"></i>
+                </a>
+            </li>
             <sec:authorize access="hasAuthority('USER')">
                 <li class="nav-item">
                     <a class="nav-link" href="/add/quote">
@@ -28,7 +34,15 @@
                         <i class="fas fa-angle-right"></i>
                     </a>
                 </li>
-            </sec:authorize><sec:authorize access="hasAuthority('MODERATOR')">
+                <li class="nav-item">
+                    <a class="nav-link" href="/add/question">
+                        <span>Add question</span>
+                        <i class="fas fa-angle-right"></i>
+                    </a>
+                </li>
+            </sec:authorize>
+
+            <sec:authorize access="hasAuthority('MODERATOR')">
             <li class="nav-item">
                 <a class="nav-link" href="/add/approve">
                     <span>For approval</span>

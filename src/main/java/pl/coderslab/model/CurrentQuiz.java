@@ -24,6 +24,10 @@ public class CurrentQuiz {
         return questions.get(currentQuestionIndex).getQuestion();
     }
 
+    public List<Answer> getCurrentAnswers() {
+        return questions.get(currentQuestionIndex).getAnswers();
+    }
+
     public String getCurrentCorrectAnswer() {
         return questions.get(currentQuestionIndex).getTrueAnswer();
     }

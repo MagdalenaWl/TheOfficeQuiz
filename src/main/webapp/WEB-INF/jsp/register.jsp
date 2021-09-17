@@ -9,7 +9,7 @@
                     <h1 class="text-color-darker">Registration</h1>
                     <small><form:errors cssClass="text-danger"/></small>
                     <div class="form-group">
-                        <form:label class="abel-size col-form-label" path="login">Login:</form:label>
+                        <form:label class="label-size col-form-label" path="login">Login:</form:label>
                         <form:input class="form-control" path="login"/>
                         <small><form:errors cssClass="text-danger" path="login"/></small>
                     </div>

@@ -28,6 +28,7 @@ public class FilterEndQuiz implements Filter {
         if (currentQuiz == null || path.startsWith(currentQuiz.getPath())) {
             chain.doFilter(req, res);
         } else {
+
             HttpServletResponse response = (HttpServletResponse) res;
             response.sendRedirect(currentQuiz.getPath() + "/confirmation");
         }

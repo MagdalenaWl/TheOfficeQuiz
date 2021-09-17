@@ -8,7 +8,7 @@
                 <form:form class="padding-small text-center" method="post" modelAttribute="userQuoteDTO">
                     <h1 class="text-color-darker">Add quote</h1>
                     <div class="form-group">
-                        <form:label class="abel-size col-form-label" path="content">Content:</form:label>
+                        <form:label class="label-size col-form-label" path="content">Content:</form:label>
                         <form:input class="form-control" path="content"/>
                         <small><form:errors cssClass="text-danger" path="content"/></small>
                     </div>

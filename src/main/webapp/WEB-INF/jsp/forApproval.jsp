@@ -30,6 +30,38 @@
 
                 </tbody>
             </table>
+            <table class="table">
+
+                <thead>
+                <tr class="d-flex text-color-darker">
+                    <th scope="col" class="col-12"> Questions for approval</th>
+                </tr>
+                <tr class="d-flex text-color-darker">
+                    <th scope="col" class="col-4">Question</th>
+                    <th scope="col" class="col-3">correct answer</th>
+                    <th scope="col" class="col-3">answers</th>
+                    <th scope="col" class="col-2">approve</th>
+                </tr>
+                </thead>
+                <tbody class="text-color-lighter">
+                <c:forEach items="${usersQuestionsToApprove}" var="question">
+
+                    <tr class="d-flex">
+                        <td class="col-4">${question.question}</td>
+                        <td class="col-3">${question.trueAnswer}</td>
+                        <td class="col-3">
+                            <c:forEach items="${question.answers}" var="answer">
+                                <p>${answer.answer}</p>
+                            </c:forEach>
+                        </td>
+                        <td class="col-2">
+                            <a href="/add/approve/question/${question.id}" class="btn btn-color rounded-25 btn-sm">Approve</a>
+                        </td>
+                    </tr>
+                </c:forEach>
+
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

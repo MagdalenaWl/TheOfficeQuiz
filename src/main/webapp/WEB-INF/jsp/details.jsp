@@ -34,7 +34,7 @@
                 <c:if test="${played}">
                     <tr class="d-flex">
                         <th scope="row" class="col-5">played games in month</th>
-                        <td class="col-5">${loggedUser.games}</td>
+                        <td class="col-5">${loggedUser.gamesInMonth}</td>
                     </tr>
                     <tr class="d-flex">
                         <th scope="row" class="col-5">average score in month</th>
