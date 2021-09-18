@@ -28,7 +28,7 @@ html {
 body {
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
-    background-image: url("/images/background.jpg");
+    background-image: url(../images/background.jpg);
     background-repeat: repeat;
     background-size: contain;
 }

@@ -46,7 +46,6 @@ public class Application extends SpringBootServletInitializer {
         return builder.build();
     }
 
-    // @TODO odkomentowac
 //    @Bean
 //    public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
 //        return args -> {
