@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>c129d065-c1c7-4ca6-9f2b-c32abae1b8ad.SCHEMA:TheOffice</OriginalElement>
+  <nodes>
+    <node x="740.1092436974789" y="0.0">c129d065-c1c7-4ca6-9f2b-c32abae1b8ad.TABLE:TheOffice.episodes</node>
+    <node x="1179.7941176470588" y="0.0">c129d065-c1c7-4ca6-9f2b-c32abae1b8ad.TABLE:TheOffice.quotes</node>
+    <node x="763.6092436974789" y="318.8571428571429">c129d065-c1c7-4ca6-9f2b-c32abae1b8ad.TABLE:TheOffice.crew</node>
+    <node x="415.55462184873943" y="5.781512605042021">c129d065-c1c7-4ca6-9f2b-c32abae1b8ad.TABLE:TheOffice.users_question</node>
+    <node x="35.11764705882351" y="21.882352941176464">c129d065-c1c7-4ca6-9f2b-c32abae1b8ad.TABLE:TheOffice.users</node>
+    <node x="1174.2941176470588" y="318.8571428571429">c129d065-c1c7-4ca6-9f2b-c32abae1b8ad.TABLE:TheOffice.characters</node>
+    <node x="49.11764705882351" y="555.1680672268909">c129d065-c1c7-4ca6-9f2b-c32abae1b8ad.TABLE:TheOffice.roles</node>
+    <node x="421.55462184873943" y="318.8571428571429">c129d065-c1c7-4ca6-9f2b-c32abae1b8ad.TABLE:TheOffice.answers</node>
+    <node x="55.11764705882351" y="343.3571428571429">c129d065-c1c7-4ca6-9f2b-c32abae1b8ad.TABLE:TheOffice.users_roles</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="c129d065-c1c7-4ca6-9f2b-c32abae1b8ad.TABLE:TheOffice.users_roles" target="c129d065-c1c7-4ca6-9f2b-c32abae1b8ad.TABLE:TheOffice.roles" relationship="REFERENCES">
+      <point x="0.0" y="42.0" />
+      <point x="0.0" y="-42.5" />
+    </edge>
+    <edge source="c129d065-c1c7-4ca6-9f2b-c32abae1b8ad.TABLE:TheOffice.users_roles" target="c129d065-c1c7-4ca6-9f2b-c32abae1b8ad.TABLE:TheOffice.users" relationship="REFERENCES">
+      <point x="0.0" y="-42.0" />
+      <point x="0.0" y="126.5" />
+    </edge>
+    <edge source="c129d065-c1c7-4ca6-9f2b-c32abae1b8ad.TABLE:TheOffice.episodes" target="c129d065-c1c7-4ca6-9f2b-c32abae1b8ad.TABLE:TheOffice.crew" relationship="REFERENCES">
+      <point x="-2.4369747882246884E-4" y="90.5" />
+      <point x="-2.4369747882246884E-4" y="-54.50014285714286" />
+    </edge>
+    <edge source="c129d065-c1c7-4ca6-9f2b-c32abae1b8ad.TABLE:TheOffice.quotes" target="c129d065-c1c7-4ca6-9f2b-c32abae1b8ad.TABLE:TheOffice.characters" relationship="REFERENCES">
+      <point x="0.0" y="78.5" />
+      <point x="0.0" y="-66.5" />
+    </edge>
+    <edge source="c129d065-c1c7-4ca6-9f2b-c32abae1b8ad.TABLE:TheOffice.answers" target="c129d065-c1c7-4ca6-9f2b-c32abae1b8ad.TABLE:TheOffice.users_question" relationship="REFERENCES">
+      <point x="0.0" y="-66.5" />
+      <point x="0.0" y="54.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.9596774193548387" showDependencies="false" x="761.1512605042017" y="362.0" />
+  <SelectedNodes>
+    <node>c129d065-c1c7-4ca6-9f2b-c32abae1b8ad.TABLE:TheOffice.roles</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+
