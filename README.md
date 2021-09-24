@@ -5,7 +5,7 @@ Application with quizzes about The Office series with the ranking of the best pl
 ![home page](https://github.com/MagdalenaWl/TheOfficeQuiz/blob/ee660b132b5beb9e7567d7575ecfe6876e2d8f33/src/main/resources/TheOfficeQuiz%202021-09-23%2020-04-56.png)
 
 Part of the data is taken from REST API https://www.officeapi.dev/api.
-Four categories of quizzes (quotes, writers, directors, users questions).
+We have four categories of quizzes (quotes, writers, directors, users questions).
 ![quotes quiz](https://github.com/MagdalenaWl/TheOfficeQuiz/blob/master/src/main/resources/TheOfficeQuiz%202021-09-23%2020-05-19.png)
 ![result](https://github.com/MagdalenaWl/TheOfficeQuiz/blob/master/src/main/resources/TheOfficeQuiz%202021-09-23%2020-05-43.png)
 
